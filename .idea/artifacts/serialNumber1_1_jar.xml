@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="serialNumber1.1.jar">
+    <output-path>$PROJECT_DIR$/serialNumber1.1.jar</output-path>
+    <root id="archive" name="serialNumber1.1.jar">
+      <element id="module-output" name="serialNumber1.1" />
+      <element id="library" level="module" name="netty-all-4.0.56.Final.jar" module-name="serialNumber1.1" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/com/boray/lib/quaqua.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/com/boray/lib/netty-all-4.0.56.Final.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
