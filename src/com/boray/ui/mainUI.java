@@ -274,8 +274,8 @@ public class mainUI implements ActionListener {
         String[] sq = {"（智能锁）", "（网关类）", "（开关模块）", "（可调模块）", "（空调模块）", "（红外学习模块）",
                 "（干接点模块）", "（控制面板）", "（网络模块）", "（传感器类）", "", "", "", "", "", ""};
         //（智能猫眼）
-        String[] sq2 = {"（Z1）", "（Z1S）", "（Z1PRO）", "（Z1W）", "（Z1F）", "（Z2）", "（Z2S）", "（Z2W）","（Z3）","（Z3W）"};
-        String[] sq3 = {"（H1）", "（H1S）", "（H1PRO）", "（H1W）", "（H1F）", "（H2）", "（H2S）", "（H2W）","（H3）","（H3W）"};
+        String[] sq2 = {"（Z1）", "（Z1S）", "（Z1PRO）", "（Z1W）", "（Z1F）", "（Z2）", "（Z2S）", "（Z2W）", "（Z3）", "（Z3W）", "（Q1）", "（Q1W）", "（Q1pro）", "（Q1S）", "（Q2）", "（Q2W）", "（Q2pro）", "（Q2S）", "（Q2F）", "（Q2C）"};
+        String[] sq3 = {"（H1）", "（H1S）", "（H1PRO）", "（H1W）", "（H1F）", "（H2）", "（H2S）", "（H2W）", "（H3）", "（H3W）", "（A1）", "（A1W）", "（A1pro）", "（A1S）", "（A2）", "（A2W）", "（A2pro）", "（A2S）", "（A2F）", "（A2C）"};
 		/*for (int j = 0; j < 64; j++) {
 			if (j < 9) {
 				s[j] = "0"+(j+1);
@@ -304,6 +304,7 @@ public class mainUI implements ActionListener {
 		}*/
         for (int i = 1; i < 256; i++) {
             if (i < 16) {
+
                 s2[i - 1] = (Integer.toHexString(i).length() == 1 ? ("0" + Integer.toHexString(i).toUpperCase()) : Integer.toHexString(i).toUpperCase());
                 s3[i - 1] = s2[i - 1];
                 s4[i - 1] = s2[i - 1];
@@ -312,7 +313,7 @@ public class mainUI implements ActionListener {
                 s3[i - 1] = s2[i - 1];
                 s4[i - 1] = s2[i - 1];
             }
-            if (i < 11) {
+            if (i < 21) {
                 s2[i - 1] = s2[i - 1] + sq2[i - 1];
                 s4[i - 1] = s4[i - 1] + sq3[i - 1];
             }
@@ -696,8 +697,8 @@ public class mainUI implements ActionListener {
                 CommPortIdentifier cpid = CommPortIdentifier.getPortIdentifier(comsString);
                 Data.serialPort = (SerialPort) cpid.open(comsString, 5);
                 Integer botelv = 9600;
-                JComboBox box = (JComboBox) map.get("xinghaofenlei");
-                if (box.getSelectedItem().toString().contains("04") || box.getSelectedItem().toString().contains("08")|| box.getSelectedItem().toString().contains("0A")) {
+                String str = ((JComboBox) map.get("xinghaofenlei")).getSelectedItem().toString().split("（")[0];
+                if (Data.list.contains(str)) {
                     botelv = 115200;
                 }
                 Data.serialPort.setSerialPortParams(botelv, 8, 1, 0);
